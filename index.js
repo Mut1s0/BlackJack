@@ -37,7 +37,7 @@ function renderGame() {
   }
   sumEl.textContent = "Sum: " + sum
   if (sum <= 20) {
-    message = "Do you want to draw a new cad?"
+    message = "Do you want to draw a new card?"
   }else if (sum === 21) {
     message = "You've got Blackjack!"
     hasBlackJack = true
@@ -49,9 +49,11 @@ function renderGame() {
 }
 
 function newCard() {
-  let card = getRandomCard()
-  sum += card
-  cards.push(card)
-  console.log(cards)
-  renderGame()
+  if ( isAlive === true && hasBlackJack === false ) {
+    let card = getRandomCard()
+    sum += card
+    cards.push(card)
+    console.log(cards)
+    renderGame()
+  }
 }
